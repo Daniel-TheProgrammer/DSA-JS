@@ -3,26 +3,23 @@
 *  Date: 17th January 2022
 */
 
+const _items = Symbol('stackItems');
+
+const items = new WeakMap();
 class Stack {
     constructor() {
-        this.items = []
-        this.count = 0;
+        items.set(this, []);
     }
 
     push(element) {
-        this.items[this.count] = element
-        this.count++;
+        const s = items.get(this);
+        s.push(element)
     }
 
     pop() {
-        if(this.isEmpty()) {
-            return undefined
-        }
-        this.count--;
-        const result = this.items[this.count]
-        delete this.items[this.count]
-        return result;
-
+       const s = items.get(this);
+       const r = s.pop();
+       return r
     }
 
     peek() {
@@ -68,6 +65,18 @@ console.log(stack.peek())
 stack.push(11);
 console.log(stack.size())
 console.log(stack.isEmpty());
+
+stack.push(5)
+stack.push(8)
+
+let objectSymbols = Object.getOwnPropertySymbols(stack);
+console.log(objectSymbols.length)
+console.log(objectSymbols)
+stack[objectSymbols[0]].push(1);
+stack.print();
+
+
+
 
 
 
