@@ -76,6 +76,11 @@ stack[objectSymbols[0]].push(1);
 stack.print();
 
 
+const newObj = new Stack();
+
+// Algorithm to convert binary to decimal
+
+
 
 
 
