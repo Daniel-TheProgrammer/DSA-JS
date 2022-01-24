@@ -3,7 +3,7 @@
 *  Date: 22nd January 2022
 */
 
-import Stack from './Stack_array'
+import { Stack } from './Stack_array'
 
 
 function baseConverter(decNumber, base) {
