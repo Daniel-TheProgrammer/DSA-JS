@@ -3,9 +3,7 @@
 *  Date: 17th January 2022
 */
 
-const _items = Symbol('stackItems');
 
-const items = new WeakMap();
 class Stack {
     constructor() {
         items.set(this, []);
@@ -17,29 +15,23 @@ class Stack {
     }
 
     pop() {
-       const s = items.get(this);
-       const r = s.pop();
-       return r
+       return this.items.pop();
     }
 
     peek() {
-        if(this.isEmpty()) {
-            return undefined
-        }
-        return this.items[this.count - 1]
+        return this.items[this.items.length - 1]
     }
 
     isEmpty() {
-        return this.count === 0;
+        return this.length === 0;
     }
 
     size() {
-        return this.count
+        return this.items.length
     }
 
     clear() {
-        this.items = {};
-        this.count = 0;
+        this.items = []
     }
 
     toString() {
@@ -54,34 +46,27 @@ class Stack {
     }
 }
 
-const stack = new Stack();
-console.log(stack.isEmpty())
 
-// Calling the peek
-console.log(stack.peek())
-
-
-// Adding another element
-stack.push(11);
-console.log(stack.size())
-console.log(stack.isEmpty());
-
-stack.push(5)
-stack.push(8)
-
-let objectSymbols = Object.getOwnPropertySymbols(stack);
-console.log(objectSymbols.length)
-console.log(objectSymbols)
-stack[objectSymbols[0]].push(1);
-stack.print();
-
-
-const newObj = new Stack();
 
 // Algorithm to convert binary to decimal
+function decimalToBinary(decNumber) {
+    const remStack = new Stack();
+    let number = decNumber;
+    let rem;
+    let binaryString = ''
+
+    while(number > 0) {
+        rem = Math.floor(number % 2);
+        remStack.push(rem);
+        number = Math.floor(number / 2);
+    }
+
+    while (!remStack.isEmpty()) {
+        binaryString += remStack.pop().toString();
+    }
+    return binaryString;
+}
 
 
-
-
-
+console.log(decimalToBinary(10))
 
