@@ -3,7 +3,6 @@
 *  Date: 26th January 2022
 */
 
-import {Queue} from './1. Queue'
 
 function hotPotato(elementsList, num) {
     const queue = new Queue();
@@ -25,3 +24,12 @@ function hotPotato(elementsList, num) {
         winner: queue.dequeue()
     }
 }
+
+const names = ['John', 'Jack', 'Camila', 'Ingrid', 'Carl'];
+const result = hotPotato(names, 7);
+
+result.eliminated.forEach(name => {
+    console.log(`${name} was eliminated from the Hot Potato game.`)
+})
+
+console.log(`The Winner is: ${result.winner}`)
