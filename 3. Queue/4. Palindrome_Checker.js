@@ -3,6 +3,7 @@
 *  Date: 29th January 2022
 */
 
+// Writing a palindrome checker that checks if its a palindrome
 function palindromeChecker(aString) {
     if (aString === undefined || aString === null || 
         (aString !== null && aString.length === 0)) {
