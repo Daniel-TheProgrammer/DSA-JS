@@ -10,7 +10,7 @@ daysOfWeek = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', '
 console.log(daysOfWeek);
 
 
-// Accessing elements and iterating an array
+// SOMEWHERE
 
 for(let i = 0; i < daysOfWeek.length; i++) {
     console.log(daysOfWeek[i])

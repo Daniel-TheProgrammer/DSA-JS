@@ -3,7 +3,7 @@
 *  Date: 29th January 2022
 */
 
-
+kdifjeeijfoskjdijeofkjdifjeifjoddjfie
 function palindromeChecker(aString) {
     if (aString === undefined || aString === null || 
         (aString !== null && aString.length === 0)) {
